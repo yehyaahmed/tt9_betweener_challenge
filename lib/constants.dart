@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+// endpoints==================
+const baseUrl = 'https://www.osamapro.online/api';
+const loginUrl = '$baseUrl/login';
+const linksUrl = '$baseUrl/links';
+
 // ============= STYLE CONSTS ==============
 
 const kScaffoldColor = Color(0xffFDFDFD);

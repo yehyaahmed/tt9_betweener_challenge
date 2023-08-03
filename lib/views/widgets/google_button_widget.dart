@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants.dart';
 
@@ -29,10 +28,10 @@ class GoogleButtonWidget extends StatelessWidget {
             padding: EdgeInsets.all(12.0),
             child: Row(
               children: [
-                Icon(
-                  FontAwesomeIcons.google,
-                  color: kRedColor,
-                ),
+                // Icon(
+                //   FontAwesomeIcons.google,
+                //   color: kRedColor,
+                // ),
                 Spacer(),
                 Text(
                   'SIGN IN WITH GOOGLE',
