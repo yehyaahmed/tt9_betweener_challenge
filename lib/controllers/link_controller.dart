@@ -17,7 +17,7 @@ Future<List<Link>> getLinks(context) async {
   final response = await http.get(Uri.parse(linksUrl),
       headers: {'Authorization': 'Bearer ${user.token}'});
 
-  print(jsonDecode(response.body)['links']);
+  // print(jsonDecode(response.body)['links']);
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body)['links'] as List<dynamic>;

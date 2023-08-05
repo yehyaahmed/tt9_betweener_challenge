@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 // endpoints==================
-const baseUrl = 'https://www.osamapro.online/api';
+const baseUrl = 'http://192.168.88.245:8000/api';
 const loginUrl = '$baseUrl/login';
 const linksUrl = '$baseUrl/links';
+const followUrl = '$baseUrl/follow';
 
 // ============= STYLE CONSTS ==============
 
