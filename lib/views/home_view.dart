@@ -27,25 +27,44 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        FutureBuilder(
-          future: user,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Text('Welcome ${snapshot.data?.user?.name}');
-            }
-            return Text('loading');
-          },
-        ),
-        FutureBuilder(
-          future: links,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return SizedBox(
-                height: 80,
-                child: ListView.separated(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your App Title'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search...',
+                prefixIcon: Icon(Icons.search),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+          FutureBuilder(
+            future: user,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text('Welcome ${snapshot.data?.user?.name}');
+              }
+              return Text('loading');
+            },
+          ),
+          FutureBuilder(
+            future: links,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return SizedBox(
+                  height: 80,
+                  child: ListView.separated(
                     padding: EdgeInsets.all(12),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -53,8 +72,9 @@ class _HomeViewState extends State<HomeView> {
                       return Container(
                         padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                            color: kLinksColor,
-                            borderRadius: BorderRadius.circular(15)),
+                          color: kLinksColor,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                         child: Text(
                           '$link',
                           style: TextStyle(color: Colors.white),
@@ -66,16 +86,18 @@ class _HomeViewState extends State<HomeView> {
                         width: 8,
                       );
                     },
-                    itemCount: snapshot.data!.length),
-              );
-            }
-            if (snapshot.hasError) {
-              return Text(snapshot.error.toString());
-            }
-            return Text('loading');
-          },
-        ),
-      ],
+                    itemCount: snapshot.data!.length,
+                  ),
+                );
+              }
+              if (snapshot.hasError) {
+                return Text(snapshot.error.toString());
+              }
+              return Text('loading');
+            },
+          ),
+        ],
+      ),
     );
   }
 }
